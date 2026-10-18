@@ -1,38 +1,56 @@
-# Omsai Portfolio
+<div align="center">
 
-A personal portfolio built to present my engineering interests, selected projects, technical skills, and contact information.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:171717,55:3F3F46,100:F97316&height=190&section=header&text=Omsai%20Portfolio&fontSize=42&fontColor=FFFFFF&fontAlignY=38&desc=Engineering%20%7C%20Projects%20%7C%20Creative%20Technology&descAlignY=62&descSize=15" width="100%" alt="Omsai Portfolio banner" />
 
-**Live website:** https://omsai-portfolio-murex.vercel.app/
+<p>
+  <a href="https://omsai-portfolio-murex.vercel.app/"><img src="https://img.shields.io/badge/Live%20Portfolio-Visit%20Website-F97316?style=for-the-badge&logo=vercel&logoColor=white" alt="Visit live portfolio" /></a>
+  <img src="https://img.shields.io/badge/React-UI-61DAFB?style=for-the-badge&logo=react&logoColor=111827" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-Build%20Tool-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/GSAP-Animations-88CE02?style=for-the-badge&logo=greensock&logoColor=111827" alt="GSAP" />
+</p>
 
-## Overview
+**A personal portfolio showcasing my engineering interests, selected projects, skills, and work in progress.**
 
-This project is a single-page portfolio with an editorial visual style, bold typography, and subtle scroll-based animations. It highlights my projects and provides links to my professional profiles.
+[Live Website](https://omsai-portfolio-murex.vercel.app/) · [GitHub](https://github.com/CodeWithOmsai77) · [LinkedIn](https://www.linkedin.com/in/omsai-dasari-b18b55381/)
 
-## Features
+</div>
 
-- Personal introduction and about section
-- Selected project showcase
-- Technical skills section
-- Contact and professional profile links
-- Scroll-based reveal animations
-- Responsive layout for different screen sizes
+---
 
-## Tech Stack
+## ✦ About
 
-- **React** — UI components
-- **Vite** — development server and build tooling
-- **CSS** — styling and layout
-- **GSAP** — animation
-- **Vercel** — deployment
+This portfolio is my personal space on the web—a place to share what I'm learning, the projects I'm building, and the direction I'm taking as an engineer.
 
-## Run Locally
+The design uses an editorial, creative-studio-inspired visual style, with bold typography, a restrained colour palette, and scroll-based motion.
 
-### Prerequisites
+## ✦ Highlights
 
-- Node.js
-- npm
+- **About & introduction** — a quick overview of my interests and direction
+- **Project showcase** — selected projects with links to explore the work
+- **Skills** — technologies and areas I'm learning and practising
+- **Motion details** — scroll-based reveal animations powered by GSAP
+- **Contact links** — ways to connect through my professional profiles
+- **Responsive layout** — designed to adapt to different screen sizes
 
-### Setup
+## ✦ Built With
+
+| Technology | Purpose |
+|---|---|
+| React | Component-based user interface |
+| Vite | Local development and production builds |
+| CSS | Layout, styling, and responsive presentation |
+| GSAP | Scroll-based animations |
+| Vercel | Hosting and deployment |
+| Git & GitHub | Version control and source hosting |
+
+## ✦ Run It Locally
+
+### Requirements
+
+- [Node.js](https://nodejs.org/)
+- npm (included with Node.js)
+
+### Installation
 
 ```bash
 git clone https://github.com/CodeWithOmsai77/Omsai-Portfolio.git
@@ -41,29 +59,34 @@ npm install
 npm run dev
 ```
 
-Open the local URL shown in your terminal.
+Open the local address printed in your terminal.
 
-### Production Build
+### Create a Production Build
 
 ```bash
 npm run build
 ```
 
-Vite outputs the production build to the `dist` directory.
+The production-ready files are generated in the `dist/` directory.
 
-## Deployment
+## ✦ Deployment
 
-The site is deployed on Vercel:
+The live site is hosted on Vercel:
 
 **https://omsai-portfolio-murex.vercel.app/**
 
-When the connected GitHub branch is updated, Vercel can automatically build and deploy the latest changes.
+The project is connected to GitHub. When changes are pushed to the configured deployment branch, Vercel can build and deploy the updated site automatically.
 
-## Connect
+## ✦ Connect
 
+- **Portfolio:** https://omsai-portfolio-murex.vercel.app/
 - **GitHub:** https://github.com/CodeWithOmsai77
 - **LinkedIn:** https://www.linkedin.com/in/omsai-dasari-b18b55381/
 
 ---
 
-Built with React and Vite.
+<div align="center">
+
+*Designed to document the journey—not just the finished results.*
+
+</div>
