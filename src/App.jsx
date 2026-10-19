@@ -1474,7 +1474,7 @@ function App() {
           </h1>
           <div className="hero-foot hero-fade">
             <p>
-              An ENTC engineering student in Pune, interested in RTL design, VLSI,
+              An Electronics And Tele-Communication engineering student in Pune, interested in RTL design, VLSI,
               digital hardware and the software that runs on it.
             </p>
             <div className="btns">
@@ -1499,7 +1499,7 @@ function App() {
           <div className="about-grid">
             <div className="prose">
               <p>
-                I'm an ENTC engineering student in Pune.
+                I'm an Electronics And Tele-Communication engineering student in Pune.
                 I'm learning how a computer is built from the bottom up: the code that runs on it,
                 the Verilog that describes it, and the silicon it ends up on.
               </p>
