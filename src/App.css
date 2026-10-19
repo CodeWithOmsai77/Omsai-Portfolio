@@ -13,7 +13,7 @@
   --pad: clamp(20px, 5vw, 72px);
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html { scroll-padding-top: 80px; }
 body:has(dialog[open]) { overflow: hidden; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
@@ -29,12 +29,22 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; margin: 0; line-heig
 main, .foot, .bar-top, .hud { position: relative; z-index: 2; }
 
 /* Chip background */
-.die { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; will-change: transform; }
+.die { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 .wire { fill: none; stroke: rgba(102, 199, 184, 0.2); stroke-width: 2; }
 .pulse { fill: none; stroke: var(--pulse); stroke-width: 3; stroke-linecap: round; opacity: 0.7; stroke-dasharray: 22 978; animation: run linear infinite; }
 @keyframes run { to { stroke-dashoffset: -1000; } }
 .chip rect, .chip path { fill: none; stroke: rgba(102, 199, 184, 0.28); stroke-width: 2; }
 .rtl text { font-family: ui-monospace, Consolas, monospace; font-size: 20px; fill: rgba(147, 163, 176, 0.32); }
+
+/* 3D background (Three.js canvas) */
+.bg3d { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.bg3d canvas { display: block; width: 100%; height: 100%; }
+.bg3d::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 28% 50%, rgba(17, 28, 37, 0.62), transparent 70%),
+    radial-gradient(ellipse at center, transparent 55%, rgba(6, 11, 16, 0.6) 100%);
+}
 
 /* Loader */
 .loader { position: fixed; inset: 0; z-index: 100; background: var(--bg); display: flex; align-items: flex-end; justify-content: space-between; padding: var(--pad); font-family: var(--display); }
@@ -84,7 +94,7 @@ main, .foot, .bar-top, .hud { position: relative; z-index: 2; }
 
 /* Word-split headings (reveal on scroll) */
 .wd { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.1em; margin-bottom: -0.1em; }
-.wi { display: inline-block; will-change: transform; }
+.wi { display: inline-block; }
 .big .row { display: block; }
 
 /* Line that draws itself on scroll (driven by --w) */
@@ -95,7 +105,7 @@ main, .foot, .bar-top, .hud { position: relative; z-index: 2; }
 }
 
 /* Marquee */
-.marquee { overflow: hidden; border-block: 1px solid var(--line); background: rgba(34, 52, 66, 0.85); padding: 16px 0; }
+.marquee { overflow: hidden; border-block: 1px solid var(--line); background: rgba(34, 52, 66, 0.8); padding: 16px 0; }
 .marquee-track { display: flex; width: max-content; animation: scroll 40s linear infinite; font-family: var(--display); font-size: clamp(20px, 3vw, 38px); font-weight: 600; white-space: nowrap; color: var(--mute); }
 .marquee-track span { padding-right: 0.4em; }
 @keyframes scroll { to { transform: translateX(-50%); } }
@@ -103,7 +113,10 @@ main, .foot, .bar-top, .hud { position: relative; z-index: 2; }
 /* Sections */
 .sec { padding-top: clamp(80px, 10vw, 150px); padding-bottom: clamp(80px, 10vw, 150px); }
 .sec h2 { font-size: clamp(34px, 5.6vw, 84px); letter-spacing: -0.03em; text-transform: uppercase; max-width: 1100px; }
-.panel { background: rgba(34, 52, 66, 0.88); border-block: 1px solid var(--line); }
+.panel { position: relative; isolation: isolate; }
+/* the panel tint is its own layer so it can animate with transform only (fast) */
+.panel-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: rgba(34, 52, 66, 0.26); border-block: 1px solid var(--line); }
+#skills .panel-bg { background: rgba(34, 52, 66, 0.5); }
 .lede { max-width: 620px; color: var(--mute); margin: 26px 0 0; }
 
 .about-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 8%; margin-top: 56px; align-items: start; }
@@ -114,7 +127,7 @@ main, .foot, .bar-top, .hud { position: relative; z-index: 2; }
 .goals li { padding: 8px 0; border-bottom: 1px solid var(--line); }
 
 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 56px; }
-.card { border: 1px solid var(--line); padding: 26px; background: rgba(27, 40, 51, 0.6); display: flex; flex-direction: column; gap: 14px; transition: border-color 0.2s; }
+.card { border: 1px solid var(--line); padding: 26px; background: rgba(14, 24, 32, 0.56); display: flex; flex-direction: column; gap: 14px; transition: border-color 0.2s; }
 .card:hover { border-color: var(--accent); }
 .art { width: 100%; height: 130px; color: var(--accent); display: block; }
 .card h3 { font-size: clamp(22px, 2.4vw, 32px); overflow-wrap: anywhere; }
@@ -138,7 +151,9 @@ main, .foot, .bar-top, .hud { position: relative; z-index: 2; }
 .tag.next { border: 1px solid var(--line); color: var(--mute); }
 
 /* Contact */
-.contact { background: #2b5a5e; color: #eef4f3; padding: clamp(80px, 10vw, 150px) 0; }
+.contact { position: relative; overflow: hidden; color: #eef4f3; padding: clamp(80px, 10vw, 150px) 0; }
+.contact-bg { position: absolute; inset: 0; background: #2b5a5e; }
+.contact .wrap { position: relative; z-index: 1; }
 .contact .lede { color: rgba(238, 244, 243, 0.8); }
 .big { font-family: var(--display); font-size: clamp(52px, 11vw, 180px); font-weight: 800; letter-spacing: -0.045em; line-height: 0.92; text-transform: uppercase; margin: 0 0 10px; }
 .big-btn { margin-top: 36px; border-color: #eef4f3; color: #eef4f3; font-size: clamp(16px, 2vw, 22px); }
@@ -149,6 +164,7 @@ main, .foot, .bar-top, .hud { position: relative; z-index: 2; }
 
 /* ================= Flow popup ================= */
 .flow { width: min(960px, 92vw); max-height: 86vh; padding: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); overflow: auto; }
+.flow { overscroll-behavior: contain; }
 .flow::backdrop { background: rgba(10, 18, 24, 0.72); }
 .flow[open] { animation: flowIn 0.55s cubic-bezier(0.2, 0.9, 0.3, 1); }
 .flow[open]::backdrop { animation: fade 0.4s ease; }
@@ -242,3 +258,9 @@ main, .foot, .bar-top, .hud { position: relative; z-index: 2; }
   .fart .d { stroke-dashoffset: 0; animation: none !important; }
   .fart .p, .fart .grow { opacity: 1; transform: none; animation: none !important; }
 }
+
+/* Lenis smooth scrolling */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: clip; }
