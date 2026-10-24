@@ -3,7 +3,7 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:171717,55:3F3F46,100:F97316&height=190&section=header&text=Omsai%20Portfolio&fontSize=42&fontColor=FFFFFF&fontAlignY=38&desc=Engineering%20%7C%20Projects%20%7C%20Creative%20Technology&descAlignY=62&descSize=15" width="100%" alt="Omsai Portfolio banner" />
 
 <p>
-  <a href="https://omsai-portfolio-murex.vercel.app/"><img src="https://img.shields.io/badge/Live%20Portfolio-Visit%20Website-F97316?style=for-the-badge&logo=vercel&logoColor=white" alt="Visit live portfolio" /></a>
+  <a href="https://codewithomsai77.github.io/Omsai-Portfolio/"><img src="https://img.shields.io/badge/Live%20Portfolio-GitHub%20Pages-F97316?style=for-the-badge&logo=githubpages&logoColor=white" alt="Visit live portfolio" /></a>
   <img src="https://img.shields.io/badge/React-UI-61DAFB?style=for-the-badge&logo=react&logoColor=111827" alt="React" />
   <img src="https://img.shields.io/badge/Vite-Build%20Tool-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
   <img src="https://img.shields.io/badge/GSAP-Animations-88CE02?style=for-the-badge&logo=greensock&logoColor=111827" alt="GSAP" />
@@ -11,7 +11,7 @@
 
 **A personal portfolio showcasing my engineering interests, selected projects, skills, and work in progress.**
 
-[Live Website](https://omsai-portfolio-murex.vercel.app/) · [GitHub](https://github.com/CodeWithOmsai77) · [LinkedIn](https://www.linkedin.com/in/omsai-dasari-b18b55381/)
+[Live Website](https://codewithomsai77.github.io/Omsai-Portfolio/) · [GitHub](https://github.com/CodeWithOmsai77) · [LinkedIn](https://www.linkedin.com/in/omsai-dasari-b18b55381/)
 
 </div>
 
@@ -40,7 +40,8 @@ The design uses an editorial, creative-studio-inspired visual style, with bold t
 | Vite | Local development and production builds |
 | CSS | Layout, styling, and responsive presentation |
 | GSAP | Scroll-based animations |
-| Vercel | Hosting and deployment |
+| GitHub Pages | Portfolio hosting and deployment |
+| GitHub Actions | Automated build and deployment |
 | Git & GitHub | Version control and source hosting |
 
 ## ✦ Run It Locally
@@ -71,15 +72,17 @@ The production-ready files are generated in the `dist/` directory.
 
 ## ✦ Deployment
 
-The live site is hosted on Vercel:
+The portfolio is hosted with **GitHub Pages**:
 
-**https://omsai-portfolio-murex.vercel.app/**
+**https://codewithomsai77.github.io/Omsai-Portfolio/**
 
-The project is connected to GitHub. When changes are pushed to the configured deployment branch, Vercel can build and deploy the updated site automatically.
+The repository uses GitHub Actions to build the Vite project and deploy the generated `dist/` directory when changes are pushed to `main`. The workflow can also be started manually from the repository's Actions tab.
+
+The Vite base path is configured for the GitHub Pages project URL in `vite.config.js`.
 
 ## ✦ Connect
 
-- **Portfolio:** https://omsai-portfolio-murex.vercel.app/
+- **Portfolio:** https://codewithomsai77.github.io/Omsai-Portfolio/
 - **GitHub:** https://github.com/CodeWithOmsai77
 - **LinkedIn:** https://www.linkedin.com/in/omsai-dasari-b18b55381/
 
