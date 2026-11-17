@@ -93,3 +93,23 @@ The Vite base path is configured for the GitHub Pages project URL in `vite.confi
 *Designed to document the journey—not just the finished results.*
 
 </div>
+
+
+## ✦ Quality Checks Before Publishing
+
+Before pushing a portfolio update, run the production build locally:
+
+```bash
+npm run build
+```
+
+Then review the site at desktop and mobile widths. Check that:
+
+- Navigation links and project links open the intended destinations.
+- Images and local assets load without broken paths.
+- Text remains readable and sections do not overflow at narrow widths.
+- Motion effects do not hide content or make the page difficult to navigate.
+- The GitHub Pages project base path remains consistent with `vite.config.js`.
+- The deployed page reflects the latest successful GitHub Actions workflow.
+
+If a build fails, resolve the build error before treating the update as ready to deploy. A successful local build does not by itself confirm that the hosted deployment succeeded; check the Actions run and the live site separately.
